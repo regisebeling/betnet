@@ -16,6 +16,7 @@ class Usuario {
 	private $complemento;
 	private $type;
 	private $bloqueado;
+	private $saldo;
 
 
 	public function __construct(){
@@ -34,6 +35,7 @@ class Usuario {
 		$this->setComplemento("");
 		$this->setType(0);
 		$this->setBloqueado(false);
+		$this->setSaldo(0);
 	}
 	//ID
 	function getID() {
@@ -185,5 +187,16 @@ class Usuario {
  		$this->bloqueado = $novo_bloq;
 		return true;
 	}
+	//Saldo
+	function getSaldo() {
+        	return $this->saldo;
+	}
+
+	function setSaldo($novo_saldo)
+	{
+ 		$this->saldo = $novo_saldo;
+		return true;
+	}
+
 }
 
