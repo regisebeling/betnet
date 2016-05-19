@@ -1,142 +1,158 @@
 <?php
-//CATP11
-//Autor: Régis Ebeling
-include("Pessoa.class.php");
+require "comum.php";
 ?>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>CATP11</title>
-  </head>
-  <body>
+<link rel="stylesheet" type="text/css" href="styleContrario.css" media="screen" />
+</head>
+<body>
+<h1>LOGIN</h1>
+<form method="POST" action="login_vai.php" name = "form">
+<br>
+<table cellspacing ="10">
+<tr>
+<td><h4>Login:</h4></td>
+<td></td>
+<td><input class ="campo"  size = 30 type="text" name = "email" id = "email"></td> 
+</tr>
+<tr>
+<td><h4>Senha:</h4></td>
+<td></td>
+<td ><input class ="campo"  size = 30 type="password" name = "senha"></td> 
+</tr>
+</table>
+<br>
+
+<input type = submit class= "btn" value = 'ENTRAR' >
+</form>
+<br><br><br>
+
+=================================================
+
+<h1>CADASTRO</h1></center>
+
+<form method=post action = "cadastrarUsuario.php" name = form2>
+
+<table cellspacing="10"> 
+<tr> 
+              	  
+       	<tr> 
+           	 <td ><h4>Nome:</h4></td> <td></td>
+           	 <td ><input class ="campo"  size = 40 type=text name = "nome"></td> 
+       	</tr> 
+      	
+	<tr> 
+           	 <td><h4>Email:</h4></td> <td></td>
+           	 <td><input  class ="campo"  size = 40 type=text  name = "email"></td> 
+       	</tr>
+
+	<tr> 
+           	 <td><h4>CPF:</h4></td> <td></td>
+           	 <td><input  class ="campo"  size = 40 type=text name = "cpf"></td>
+
+       	</tr> 
+
+	<tr> 
+           	<td><h4>Data de nascimento:</h4></td> <td></td>
+           	<td><center><select  name="diaAniversario" id = "diaAniversario" >
+			<option value="0">&nbsp;Dia&nbsp;</option>
+			<?php
+
+			for ($i = 0; $i <= 31; $i++){
+				echo "<option value='".$i."'>".$i."</option>";
+			}
+			?>
+
+			</select> 
+			&nbsp;&nbsp;&nbsp;
+			<select name="mesAniversario" id = "mesAniversario">
+			<option value="0">&nbsp;Mês&nbsp;</option>
+
+			<?php
+
+			for ($i = 1; $i <= 12; $i++){
+				echo "<option value='".$i."'>".$i."</option>";
+			}
+			?>
+			</select>
+			&nbsp;&nbsp;&nbsp;
+
+			<select name = "anoAniversario" id ="anoAniversario">
+			<option font-size= "20px" value="0">&nbsp;Ano&nbsp;</option>
+			<?php
+
+			for ($i = 2016; $i >= 1900; $i--){
+				echo "<option value='".$i."'>".$i."</option>";
+			}
+			?>
+
+			</select></center></td> 
+       	</tr> 
+
+	<tr> 
+           	<td><h4>Sexo:</h4></td> <td></td>
+           	<td><center>Masculino
+		<input type ="radio" name="sexo" id = "homem" value ="M">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	       	<input type ="radio" name="sexo" id="mulher" Value = "F">Feminino</center>
+	</td> 
+       	
+	<tr> 
+           	 <td><h4>Conta:</h4></td> <td></td>
+           	 <td><input  class ="campo"  size = 40 type=text name = "conta"></td>
+
+       	</tr> 
+
+	<tr> 
+           	 <td><h4>Cidade:</h4></td> <td></td>
+           	 <td><input  class ="campo"  size = 40 type=text name = "cidade"></td>
+       	</tr> 
+
+	<tr> 
+           	 <td><h4>UF:</h4></td> <td></td>
+           	 <td><input  class ="campo"  size = 40 type=text name = "uf"></td>
+
+       	</tr> 
+
+	<tr> 
+           	 <td><h4>CEP:</h4></td> <td></td>
+           	 <td><input  class ="campo"  size = 40 type=text name = "cep"></td>
+
+       	</tr> 
+	<tr> 
+           	 <td><h4>Número:</h4></td> <td></td>
+           	 <td><input  class ="campo"  size = 40 type=text name = "num"></td>
+
+       	</tr> 
+	<tr> 
+           	 <td><h4>Complemento:</h4></td> <td></td>
+           	 <td><input  class ="campo"  size = 40 type=text name = "complemento"></td>
+
+       	</tr> 
+
+
+	<tr> 
+           	 <td><h4>Senha:</h4></td> <td></td>
+           	 <td><input  class ="campo"  size = 40 type=password name = "cadsenha"></td> 
+       	</tr>
+
+	<tr> 
+           	 <td><h4>Confirmar Senha:</h4></td> <td></td>
+           	 <td><input  class ="campo" size = 40 type=password name = "cadconfsenha"></td> 
+       	</tr>
+	 
+   	
+	</tr> 
+</table> <br>
+
+<input type = reset  class ="btn" value = CANCELAR name = cancelar>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type = button class= "btn" value = 'CADASTRAR' onclick='form2.submit()'>
+
+
+
+
+
+
 </body>
-<?php
-
-	echo "====================== Implementação a ======================";
-	echo "<br><br>";
-	$timestamp = mktime(0, 0, 0, 02, 10, 1993); // Gera o timestamp da data 09/02/1993 as 00:00:00
-	
-	echo "*****Instância de Pessoa utilizando o construtor padrão*****<br>";
-	$pessoa_padrao = new Pessoa();
-	echo "Nome: ".$pessoa_padrao->getNome()."<br>";
-	echo "Nasc: ".date('d/m/Y', $pessoa_padrao->getNascimento())."<br>";
-	echo "Sexo: ".$pessoa_padrao->getSexo()."<br><br><br>";
-	
-	echo "*****Instância de Pessoa utilizando o construtor Alternativo*****<br>";
-	$pessoa_parametrizada = new Pessoa("Pedro", $timestamp, Sexo::MASCULINO);
-	echo "Nome: ".$pessoa_parametrizada->getNome()."<br>";
-	echo "Nasc: ".date('d/m/Y', $pessoa_parametrizada->getNascimento())."<br>";
-	echo "Sexo: ".$pessoa_parametrizada->getSexo()."<br><br><br>";
-	
-	echo "*****Instância de Pessoa utilizando o construtor Alternativo e parâmetro inválido*****<br>";
-	$pessoa_parametrizada = new Pessoa("2Pedro", $timestamp, Sexo::MASCULINO);
-	echo "Nome: ".$pessoa_parametrizada->getNome()."<br>";
-	echo "Nasc: ".date('d/m/Y', $pessoa_parametrizada->getNascimento())."<br>";
-	echo "Sexo: ".$pessoa_parametrizada->getSexo()."<br><br><br>";
-	
-	echo "*****Instância de Aluno utilizando o construtor padrão*****<br>";
-	$aluno_padrao = new Aluno();
-	echo "Nome: ".$aluno_padrao->getNome()."<br>";
-	echo "Nasc: ".date('d/m/Y', $aluno_padrao->getNascimento())."<br>";
-	echo "Sexo: ".$aluno_padrao->getSexo()."<br>";
-	echo "Código: ".$aluno_padrao->getCodigo()."<br>";
-	echo "Nível: ".$aluno_padrao->getNivel()."<br><br><br>";
-	
-	echo "*****Instância de Aluno utilizando o construtor Alternativo*****<br>";
-	$aluno_parametrizada = new Aluno("Yoda", $timestamp, Sexo::MASCULINO, "7777", Nivel::MESTRADO);
-	echo "Nome: ".$aluno_parametrizada->getNome()."<br>";
-	echo "Nasc: ".date('d/m/Y', $aluno_parametrizada->getNascimento())."<br>";
-	echo "Sexo: ".$aluno_parametrizada->getSexo()."<br>";
-	echo "Codigo: ".$aluno_parametrizada->getCodigo()."<br>";
-	echo "Nivel: ".$aluno_parametrizada->getNivel()."<br><br><br>";
-	
-	echo "*****Instância de Aluno utilizando o construtor Alternativo e parâmetro inválido*****<br>";
-	$aluno_parametrizada = new Aluno("2Yoda", $timestamp, Sexo::MASCULINO, "e777", Nivel::MESTRADO);
-	echo "Nome: ".$aluno_parametrizada->getNome()."<br>";
-	echo "Nasc: ".date('d/m/Y', $aluno_parametrizada->getNascimento())."<br>";
-	echo "Sexo: ".$aluno_parametrizada->getSexo()."<br>";
-	echo "Codigo: ".$aluno_parametrizada->getCodigo()."<br>";
-	echo "Nivel: ".$aluno_parametrizada->getNivel()."<br><br><br>";
-
-
-
-	
-	echo "<strong>====================== Implementação b ======================</strong><br>";
-	$objetos = array();
-	$objetos_hash = array(); //Para utilizar uma hashtable
-	$nomes_masc = array("Alisson", "Willian", "Ernando", "Paulao", "Artur", "Dourado", "Bob", "Andrigo", "Anderson", "Sasha", "Vitinho");
-	$nomes_fem = array("Maria", "Julia", "Leticia", "Fernanda", "Paula", "Rosana", "Vanessa", "Sofia");
-	$nomes_merge = array_merge($nomes_fem, $nomes_masc);
-	$vet_sexo = array(Sexo::INDEFINIDO, Sexo::MASCULINO, Sexo::FEMININO);
-	$vet_nivel = array(Nivel::INDEFINIDO, Nivel::GRADUACAO, Nivel::ESPECIALIZACAO, Nivel::MESTRADO, Nivel::DOUTORADO);
-
-
-	for ($i = 0; $i < 10; $i++){
-	
-		if(rand(0,1) == 0){ //Objeto tipo Pessoa
-			if(rand(0,2) == 0){ //Masculino
-				$nome = $nomes_masc[rand(0,10)];
-				$sexo = $vet_sexo[1];
-
-			}
-			else if(rand(0,2) == 1){ //Feminino
-				$nome = $nomes_fem[rand(0,7)];
-				$sexo = $vet_sexo[2];
-			}
-			else{ //INDEFINIDO
-				$nome = $nomes_merge[rand(0,18)];
-				$sexo = $vet_sexo[0];
-				
-			}
-			$timestamp = mktime(0, 0, 0, rand(1,12), rand(0,30), rand(1930,2015));	//Gera uma data aleatória		
-			$pessoa = new Pessoa($nome, $timestamp, $sexo); echo "<br>"; //Cria um objeto do tipo pessoa
-			array_push($objetos, $pessoa); //Adiciona o objeto no array
-			$objetos_array[$nomes] = $pessoa; //Adiciona o objeto na hashtable (array associativo)
-		
-		}
-
-		else{ 
-			if(rand(0,2) == 0){ //Masculino
-				$nome = $nomes_masc[rand(0,10)];
-				$sexo = $vet_sexo[1];
-
-			}
-			else if(rand(0,2) == 1){ //Feminino
-				$nome = $nomes_fem[rand(0,7)];
-				$sexo = $vet_sexo[2];
-			}
-			else{ //INDEFINIDO
-				$nome = $nomes_merge[rand(0,18)];
-				$sexo = $vet_sexo[0];
-				
-			}
-			$timestamp = mktime(0, 0, 0, rand(1,12), rand(0,30), rand(1930,2015));			
-			$codigo = rand(1,9999);
-			$nivel = $vet_nivel[rand(0,4)];
-			$aluno = new Aluno($nome, $timestamp, $sexo, $codigo, $nivel); echo "<br>";
-			array_push($objetos, $aluno);
-			$objetos_hash[$nome] = $aluno;
-		
-		}
-
-	}
-	
-	//Imprimindo os objetos armazenador no array
-	foreach($objetos as $obj)
-		echo $obj->toString()."<br>";
-
-	echo "<strong>====================== Implementação c ======================</strong><br>";
-	//Gerando aleatoriamente os objetos utilizei um conjunto de poucos nomes e não realizei a comparação se a chave (nome) já existe na hashtable. Então, simplesmente o registro é sobrescrito na estrutura de dados.
-	//Imprimindo os objetos armazenados na hashtable
-
-	foreach($objetos_hash as $obj){
-		echo $obj->toString()."<br>";
-
-	}
-
-
-?>
 </html>
-
