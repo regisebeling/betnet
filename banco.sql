@@ -55,3 +55,12 @@ CREATE TABLE `reclamacao` (
 `resposta` text NULL,
 PRIMARY KEY (`id_reclamacao`)
 ) ENGINE=MyISAM;
+
+CREATE TABLE `lutadores` (
+`id_lutador` int(10) AUTO_INCREMENT NOT NULL,
+`nome` varchar(25) NOT NULL,
+`lutas` int(3) NOT NULL,
+`vitorias` int(3) NOT NULL,
+`derrotas` int(3) NOT NULL,
+PRIMARY KEY (`id_lutador`)
+) ENGINE=MyISAM;
