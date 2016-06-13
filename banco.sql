@@ -3,6 +3,7 @@ CREATE TABLE `resultado` (
 `vencedor` varchar(25) NOT NULL,
 `perdedor` varchar(25) NOT NULL,
 `valor` double NOT NULL,
+`valor_casa` double NOT NULL,
 PRIMARY KEY (`id_luta`)
 ) ENGINE=MyISAM;
 
