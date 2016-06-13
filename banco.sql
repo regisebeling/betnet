@@ -36,6 +36,7 @@ CREATE TABLE `lutas` (
 `local` varchar(50),
 `apostas_minimas` double NOT NULL,
 `ativo` int(1) NOT NULL,
+`termino` int(1) NOT NULL,
 PRIMARY KEY (`id_lutas`)
 ) ENGINE=MyISAM;
 
